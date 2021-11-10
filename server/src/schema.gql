@@ -3,9 +3,12 @@
 # ------------------------------------------------------
 
 type Category {
+  createdAt: Timestamp!
+  deletedAt: Timestamp
   description: String!
   id: Int!
   name: String!
+  updatedAt: Timestamp!
 }
 
 type Post {
@@ -17,18 +20,29 @@ type Post {
 }
 
 type Query {
-  pets: [User!]!
+  users: [User!]!
 }
 
 type Tag {
+  createdAt: Timestamp!
+  deletedAt: Timestamp
   description: String!
   id: Int!
   name: String!
+  updatedAt: Timestamp!
 }
 
+"""
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
 type User {
+  createdAt: Timestamp!
+  deletedAt: Timestamp
   email: String!
   id: Int!
   password: String!
+  updatedAt: Timestamp!
   username: String!
 }

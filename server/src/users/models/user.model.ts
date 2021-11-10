@@ -6,10 +6,11 @@ import * as bcrypt from 'bcrypt';
 Custom Models or Entities
 */
 import { Post } from 'src/blog/models/post.model';
+import { BaseModel } from 'src/common/models/base.model';
 
 @Entity()
 @ObjectType()
-export class User {
+export class User extends BaseModel {
   @PrimaryGeneratedColumn()
   @Field(() => Int)
   id: number;

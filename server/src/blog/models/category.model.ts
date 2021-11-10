@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { BaseModel } from 'src/common/models/base.model';
 import { BaseEntity, Column, Entity, JoinTable, ManyToOne, ManyToMany, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 /*
@@ -8,7 +9,7 @@ import { Post } from './post.model';
 
 @Entity()
 @ObjectType()
-export class Category {
+export class Category extends BaseModel {
   @PrimaryGeneratedColumn()
   @Field(() => Int)
   id: number;
