@@ -33,6 +33,8 @@ const nodeEnvironment = `${(process.env.NODE_ENV || 'development').toLowerCase()
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
         entities: [__dirname + '/**/*.model{.ts,.js}'],
+        seeds: [__dirname + '/**/*.seed{.ts,.js}'],
+        factories: [__dirname + '/**/*.factory{.ts,.js}'],
         synchronize: true,
         logging: nodeEnvironment === 'development' ? true : false,
         dropSchema: nodeEnvironment === 'test' ? true : false,

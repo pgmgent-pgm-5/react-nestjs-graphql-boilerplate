@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { BaseEntity, Column, Entity, JoinTable, ManyToOne, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinTable, ManyToOne, ManyToMany, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 /*
 Custom Models or Entities
@@ -27,4 +28,10 @@ export class User {
 
   @ManyToMany(() => Post, post => post.authors)
   posts: [Post]
+
+  @BeforeInsert()
+  async setPassword(password: string) {
+    const salt = await bcrypt.genSalt()
+    this.password = await bcrypt.hash(password || this.password, salt)
+  }
 }
