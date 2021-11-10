@@ -5,5 +5,9 @@ React + NestJS + GraphQL Boilerplate | Associate Degree in Computer Programming 
 
 `nest new server`
 
-
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
 
